@@ -9,7 +9,7 @@ Luego, escribe la función “procesarEstudiante” que tendrá como objetivo re
 4. Convertir el nombre del estudiante a mayúsculas. Para esto investiga sobre el método “toUpperCase()”
 https://www.w3schools.com/jsref/jsref_touppercase.asp
 5. Devuelver un objeto con el nombre en mayúsculas y el promedio de las notas.*/
-
+/*
 //Objeto
 let estudiante = {
     nombre: "Lilen",
@@ -44,9 +44,37 @@ function procesarEstudiante(estudiante) {
 //Resultado
 let resultado = procesarEstudiante(estudiante);
 console.log(resultado);
+*/
 
+/*Ejercicio 2: Análisis y Modificación de Cadenas de Texto
+Pide al usuario que ingrese una oración. Luego, escribe la función “procesarOracion” que haga lo siguiente:
+1. Quite los espacios en blanco al principio y al final.
+2. Divida la oración en palabras.
+3. Reemplace todas las vocales 'a' por '@'. Tener en cuenta utilizar “/a/g” que indica que se debe buscar todas las apariciones del carácter 'a' en la cadena (la bandera g es para global, lo que significa que reemplazará todas las apariciones, no solo la primera).
+4. Encuentre la posición de la primera aparición de la palabra "javascript". De no aparecer retornar -1
+5. Convierta la oración a una cadena de palabras separadas por guiones.*/
 
-/**/
+// Pedir la oración al usuario
+let oracion = prompt("Ingrese una oración: ");
+// Función
+function procesarOracion(texto) {
+    //Sacar espacios al principio y final
+    let textoLimpio = texto.trim()
+    //Dividir en palabras el texto
+    let palabras = textoLimpio.split(" ");
+    //Reemplazar todas las 'a' por '@'
+    let textoConArrobas = textoLimpio.replace(/a/g, "@");
+    //Encontrar la posición de la primera aparición de "javascript"
+    let posicionJS = textoLimpio.indexOf("javascript"); // -1 si no aparece
+    //Convertir la oración a una cadena de palabras separadas por guiones
+    let oracionConGuiones = palabras.join("-");
+    //Resultados
+    console.log("Oración modificada", textoConArrobas);
+    console.log("Posición de la palabra 'javascript'", posicionJS);
+    console.log("Oración con guiones", oracionConGuiones);
+};
+// Invocación
+procesarOracion(oracion);
 
 /**/
 
