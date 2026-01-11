@@ -1,0 +1,22 @@
+{
+  "name": "adaclase17",
+  "version": "1.0.0",
+  "description": "",
+  "main": "actividades.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Chu-l/ADAClase17.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Chu-l/ADAClase17/issues"
+  },
+  "homepage": "https://github.com/Chu-l/ADAClase17#readme",
+  "dependencies": {
+    "prompt-sync": "^4.2.0"
+  }
+}
