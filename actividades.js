@@ -200,7 +200,7 @@ let entrada = "Toyota, Honda, Ford, Chevrolet, Nissan";
 3. Reemplace todas las marcas "Ford" por "BMW".
 4. Encuentre el índice de la marca "Chevrolet".
 5. Devuelva una cadena de marcas en orden alfabético separadas por puntos. Utilizar “.sort()”*/
-
+/*
 let entrada = "Toyota, Honda, Ford, Chevrolet, Nissan";
 
 function gestionarAutos(entrada) {
@@ -233,8 +233,54 @@ function gestionarAutos(entrada) {
 };
 
 gestionarAutos(entrada);
+*/ 
 
-/**/
+/*Ejercicio 7: “La Floreria”
+Escribe una función "gestionarFloreria" que realice las siguientes tareas con una lista predefinida de nombres de flores:
+let entrada = "Rosa, Tulipán, Orquídea, Lirio";
+1. Quite los espacios en blanco alrededor de cada flor.
+2. Verifique si existe la flor "Margarita" y, si está presente, agregue "Azucena" al final de la lista.
+3. Reemplace todas las flores "Orquídea" por "Clavel".
+4. Encuentre el índice de la flor "Girasol" y, si no está presente, agregue "Girasol" al inicio de la lista.
+Devuelva una cadena de flores en orden alfabético separadas por puntos.*/
+
+let entrada = "Rosa, Tulipán, Orquídea, Lirio";
+
+function gestionarFloreria(entrada) {
+
+    // Dividir la cadena en un array y quitar espacios
+    let flores = entrada.split(",").map(flor => flor.trim())
+
+     // Verificar si existe "Margarita" y, si está, agregar "Azucena"
+    if (flores.includes("Margarita")) {
+        flores.push("Azucena");
+    }
+
+    // Reemplazar todas las flores "Orquídea" por "Clavel"
+    let floresReemplazadas = flores.map(flor => {
+            if (flor === "Orquídea") {
+                return "Clavel"
+            } else {
+                return flor
+            }
+    })
+
+    // Encontrar el índice de "Girasol", y si no está, agregarlo al inicio
+    let indiceGirasol = floresReemplazadas.indexOf("Girasol");
+    if (indiceGirasol === -1) {
+        floresReemplazadas.unshift("Girasol");
+        indiceGirasol = 0; // ahora está al inicio
+    }
+
+    // Ordenar alfabéticamente y devolver cadena separada por puntos
+    let floresOrdenadas = floresReemplazadas.sort().join(".");
+
+    //Resultado
+    console.log("Lista de flores final: ", floresOrdenadas)
+};
+
+gestionarFloreria(entrada);
+
 
 /**/
 
