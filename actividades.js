@@ -243,7 +243,7 @@ let entrada = "Rosa, Tulipán, Orquídea, Lirio";
 3. Reemplace todas las flores "Orquídea" por "Clavel".
 4. Encuentre el índice de la flor "Girasol" y, si no está presente, agregue "Girasol" al inicio de la lista.
 Devuelva una cadena de flores en orden alfabético separadas por puntos.*/
-
+/*
 let entrada = "Rosa, Tulipán, Orquídea, Lirio";
 
 function gestionarFloreria(entrada) {
@@ -280,8 +280,28 @@ function gestionarFloreria(entrada) {
 };
 
 gestionarFloreria(entrada);
+*/
 
+//Ejercicios - Algoritmos de Búsqueda
 
-/**/
+/*Ejercicio 8: Lugar y números
+Para practicar la implementación del algoritmo de búsqueda binaria, vamos a empezar con un ejemplo simple. Quiero que se familiaricen con la sintaxis del mismo, por lo que no hare énfasis en los datos, sino en la solución.
+Dada la siguiente lista:
+let list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+Utilizar el algoritmo de búsqueda binaria para responder los siguientes ítems:
+o ¿Cuál es la posición del número 1?
+o ¿Cuál es la posición del número 5?
+o ¿Cuál es la posición del número 6?
+o ¿Cuál es la posición del número 9?
+o ¿Cuál es la posición del número 11?
+Sabemos que responder estas preguntas es extremadamente fácil, ya que podemos leer el array, y determinar con un cálculo visual la posición de cada elemento, pero, la propuesta que les hago es que codeen un algoritmo de búsqueda binaria, que “busque” ese número, por ejemplo, el 6, y nos indique por consola la posición del mismo.
+El objetivo de este ejercicio es que puedan practicar la sintaxis sin añadir complejidad extra.*/
 
-/**/
+/*Ejercicio 9: Desafío extra! Orden, lugar y números
+Al ejercicio anterior vamos a aumentarle la difi cultad un poco, y de paso, aplicamos lo aprendido en semanas anteriores. Quiero que hagan lo mismo del ejercicio anterior (buscar la posición de un número en un array), pero partiendo de esta lista:
+let list = [12, 3, 5, 7, 1, 22, 47, 100];
+Para aplicar búsqueda binaria, deberán ordenar primero la lista, de menor a mayor, utilizando bubble sort. Luego, respondan las siguientes preguntas:
+o ¿Cuál es la posición del número 12?
+o ¿Cuál es la posición del número 5?
+o ¿Cuál es la posición del número 22?
+o ¿Cuál es la posición del número 100?*/
