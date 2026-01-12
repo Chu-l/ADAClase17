@@ -298,7 +298,7 @@ Sabemos que responder estas preguntas es extremadamente fácil, ya que podemos l
 El objetivo de este ejercicio es que puedan practicar la sintaxis sin añadir complejidad extra.*/
 
 /*La búsqueda binaria es un algoritmo para buscar un elemento en un array ordenado (de menor a mayor, o de mayor a menor) de manera muy eficiente. En lugar de revisar cada elemento uno por uno como hace la búsqueda lineal, la binaria divide el array a la mitad en cada paso, reduciendo rápidamente el número de comparaciones.*/
-
+/*
 let list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
 
 // Función de búsqueda binaria
@@ -331,12 +331,63 @@ console.log("Posición del 5:", busquedaBinaria(list, 5));
 console.log("Posición del 6:", busquedaBinaria(list, 6));
 console.log("Posición del 9:", busquedaBinaria(list, 9));
 console.log("Posición del 11:", busquedaBinaria(list, 11));
+*/
 
 /*Ejercicio 9: Desafío extra! Orden, lugar y números
-Al ejercicio anterior vamos a aumentarle la difi cultad un poco, y de paso, aplicamos lo aprendido en semanas anteriores. Quiero que hagan lo mismo del ejercicio anterior (buscar la posición de un número en un array), pero partiendo de esta lista:
+Al ejercicio anterior vamos a aumentarle la dificultad un poco, y de paso, aplicamos lo aprendido en semanas anteriores. Quiero que hagan lo mismo del ejercicio anterior (buscar la posición de un número en un array), pero partiendo de esta lista:
 let list = [12, 3, 5, 7, 1, 22, 47, 100];
 Para aplicar búsqueda binaria, deberán ordenar primero la lista, de menor a mayor, utilizando bubble sort. Luego, respondan las siguientes preguntas:
 o ¿Cuál es la posición del número 12?
 o ¿Cuál es la posición del número 5?
 o ¿Cuál es la posición del número 22?
 o ¿Cuál es la posición del número 100?*/
+
+let list = [12, 3, 5, 7, 1, 22, 47, 100];
+
+// Función Bubble Sort para ordenar de menor a mayor
+function bubbleSort(array) {
+    let n = array.length;
+    for (let i = 0; i < n - 1; i++) {
+        // Cada pasada mueve el mayor al final de la lista
+        for (let j = 0; j < n - 1 - i; j++) {
+            if (array[j] > array[j + 1]) {
+                // Intercambiar los elementos
+                let temp = array[j];
+                array[j] = array[j + 1];
+                array[j + 1] = temp;
+            }
+        }
+    }
+    return array;
+}
+
+// Función de búsqueda binaria
+function busquedaBinaria(array, objetivo) {
+    let izquierda = 0;
+    let derecha = array.length - 1;
+
+    while (izquierda <= derecha) {
+        let medio = Math.floor((izquierda + derecha) / 2);
+
+        if (array[medio] === objetivo) {
+            return medio; // número encontrado
+        } else if (array[medio] < objetivo) {
+            izquierda = medio + 1; // buscar en la mitad derecha
+        } else {
+            derecha = medio - 1; // buscar en la mitad izquierda
+        }
+    }
+
+    return -1; // número no encontrado
+}
+
+// Ordenar la lista primero
+let listaOrdenada = bubbleSort(list.slice()); // usamos slice() para no modificar el original
+
+console.log("Lista ordenada:", listaOrdenada);
+
+// Probar búsqueda binaria con los números pedidos
+console.log("Posición del 12:", busquedaBinaria(listaOrdenada, 12));
+console.log("Posición del 5:", busquedaBinaria(listaOrdenada, 5));
+console.log("Posición del 22:", busquedaBinaria(listaOrdenada, 22));
+console.log("Posición del 100:", busquedaBinaria(listaOrdenada, 100));
