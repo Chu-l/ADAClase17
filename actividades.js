@@ -121,7 +121,7 @@ Luego, escribe la función “transformarYAnalizarNombres”que realice las sigu
 2. Verifi que si existe el nombre "Juan".
 3. Reemplace todos los nombres "María" por "Ana".
 4. Encuentre el índice del nombre "Pedro".*/
-
+/*
 let lista = prompt("Ingrese una lista de nombres separados por comas: ");
 
 function transformarYAnalizarNombres(nombres) {
@@ -150,8 +150,46 @@ function transformarYAnalizarNombres(nombres) {
 };
 
 transformarYAnalizarNombres(lista);
+*/
 
-/**/
+/*Ejercicio 5: Manipulación de Arrays y Cadenas
+A partir del siguiente array de frases, escribe la función “procesarFrases” que realice las siguientes tareas:
+1. Convierta cada frase a minúsculas. Investigar el método “.toLowerCase()” para este punto.
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toLowerCase
+2. Divida cada frase en palabras.
+3. Reemplace las palabras "malo" por "bueno".
+4. Combine las palabras de cada frase en una nueva cadena separada por espacios.
+5. Devuelva un nuevo array con las frases modificadas.*/
+
+let listaFrases = [
+    "El clima es MALO hoy",
+    "Este libro es muy MALO",
+    "El servicio aquí es MALO"
+];
+
+function procesarFrases(frases) {
+    
+    let frasesProcesadas = frases.map(frase => {
+        //Convertir cada frase a minúsculas
+        let fraseMin = frase.toLowerCase()
+        //Dividir cada frase en palabras
+        let palabras = fraseMin.split(" ")
+        //Reemplazar las palabras "malo" por "bueno" (debo usar map otra vez para el recorrido del array de palabras)
+        let palabrasReemplazadas = palabras.map(palabra => {
+            if (palabra === "malo") {
+                return "bueno"
+            } else {
+                return palabra
+            }
+        })
+        //Unir nuevamente las palabras en un solo string
+        return palabrasReemplazadas.join(" ")
+    })
+    //Devolvemos el array con las frases corregidas
+    return frasesProcesadas
+};
+
+console.log(procesarFrases(listaFrases));
 
 /**/
 
