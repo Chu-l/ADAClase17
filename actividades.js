@@ -85,7 +85,7 @@ A partir del siguiente array de productos, escriba la función ‘gestionarProdu
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/findIndex
 4. Verifique si existe un producto con precio mayor a 50. Para esto investigar el método “.some()” https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/some
 5. Devuelva una cadena de nombres de productos separados por comas.*/
-
+/*
 // Array de productos inicial
 let arrayProductos = [
     { nombre: "Nutella", precio: 9500 },
@@ -112,8 +112,44 @@ function gestionarProductos(productos) {
 };
 // Invocación
 gestionarProductos(arrayProductos);
+*/
 
-/**/
+/*Ejercicio 4: Transformación y Análisis de Cadenas
+Pide al usuario que ingrese una lista de nombres separados por comas. Los nombres a ingresar deben ser “Julian”, “Maria”, “Malena”, “Andrea”, “Pablo” y “Pedro”.
+Luego, escribe la función “transformarYAnalizarNombres”que realice las siguientes tareas:
+1. Quite los espacios en blanco alrededor de cada nombre.
+2. Verifi que si existe el nombre "Juan".
+3. Reemplace todos los nombres "María" por "Ana".
+4. Encuentre el índice del nombre "Pedro".*/
+
+let lista = prompt("Ingrese una lista de nombres separados por comas: ");
+
+function transformarYAnalizarNombres(nombres) {
+     // Romper la la lista en un array 
+    let listaSplit = nombres.split(",");
+    // Quitar espacios en cada nombre
+    let listaLimpia = listaSplit.map(nombre => nombre.trim());
+    // Verificar si existe "Juan"
+    let existeJuan = listaLimpia.includes("Juan");
+    // Reemplazar "Maria" o "María" por "Ana"
+    let listaModificada = listaLimpia.map(nombre => {
+        if (nombre === "Maria" || nombre === "María") {
+            return "Ana";
+        } else {
+            return nombre;
+        }
+    });
+    // Encontrar el índice de "Pedro"
+    let indicePedro = listaModificada.indexOf("Pedro"); // -1 si no aparece
+    //Ordenar
+    let nombresOrdenados = listaModificada.sort().join(".")
+    //Resultados
+    console.log("Existe el nombre Juan?: ", existeJuan)
+    console.log("El índice de Pedro es ", indicePedro)
+    console.log("Nombres finales: ", nombresOrdenados)
+};
+
+transformarYAnalizarNombres(lista);
 
 /**/
 
