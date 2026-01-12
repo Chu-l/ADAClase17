@@ -160,7 +160,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 3. Reemplace las palabras "malo" por "bueno".
 4. Combine las palabras de cada frase en una nueva cadena separada por espacios.
 5. Devuelva un nuevo array con las frases modificadas.*/
-
+/*
 let listaFrases = [
     "El clima es MALO hoy",
     "Este libro es muy MALO",
@@ -190,8 +190,49 @@ function procesarFrases(frases) {
 };
 
 console.log(procesarFrases(listaFrases));
+*/
 
-/**/
+/*Ejercicio 6: Autos y más autos
+Escribe una función "gestionarAutos" que realice las siguientes tareas con una lista predefinida de marcas de autos:
+let entrada = "Toyota, Honda, Ford, Chevrolet, Nissan";
+1. Quite los espacios en blanco alrededor de cada marca.
+2. Verifique si existe la marca "Tesla".
+3. Reemplace todas las marcas "Ford" por "BMW".
+4. Encuentre el índice de la marca "Chevrolet".
+5. Devuelva una cadena de marcas en orden alfabético separadas por puntos. Utilizar “.sort()”*/
+
+let entrada = "Toyota, Honda, Ford, Chevrolet, Nissan";
+
+function gestionarAutos(entrada) {
+
+    // Dividir la cadena en un array y quitar espacios alrededor de cada marca. Uso map para recorrer el array de marcas y trim para borrar los espacios que me quedaron
+    let marcas = entrada.split(",").map(marca => marca.trim());
+
+    // Verificar si existe "Tesla". Esto devuelve un booleano
+    let existeTesla = marcas.includes("Tesla");
+
+    // Reemplazar todas las marcas "Ford" por "BMW"
+    let marcasReemplazadas = marcas.map(marca => {
+            if (marca === "Ford") {
+                return "BMW"
+            } else {
+                return marca
+            }
+    })
+
+    // Encontrar el índice de "Chevrolet"
+    let indiceChevrolet = marcas.indexOf("Chevrolet"); // -1 si no aparece
+
+    // Devolver cadena de marcas ordenadas alfabéticamente separadas por puntos
+    let marcasOrdenadas = marcasReemplazadas.sort().join(".");
+
+    //Resultados
+    console.log("Existe la marca Tesla?: ", existeTesla)
+    console.log("El índice de Chevrolet es ", indiceChevrolet)
+    console.log("Autos finales: ", marcasOrdenadas)
+};
+
+gestionarAutos(entrada);
 
 /**/
 
