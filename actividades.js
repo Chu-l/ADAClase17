@@ -297,6 +297,41 @@ o ¿Cuál es la posición del número 11?
 Sabemos que responder estas preguntas es extremadamente fácil, ya que podemos leer el array, y determinar con un cálculo visual la posición de cada elemento, pero, la propuesta que les hago es que codeen un algoritmo de búsqueda binaria, que “busque” ese número, por ejemplo, el 6, y nos indique por consola la posición del mismo.
 El objetivo de este ejercicio es que puedan practicar la sintaxis sin añadir complejidad extra.*/
 
+/*La búsqueda binaria es un algoritmo para buscar un elemento en un array ordenado (de menor a mayor, o de mayor a menor) de manera muy eficiente. En lugar de revisar cada elemento uno por uno como hace la búsqueda lineal, la binaria divide el array a la mitad en cada paso, reduciendo rápidamente el número de comparaciones.*/
+
+let list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+
+// Función de búsqueda binaria
+function busquedaBinaria(array, objetivo) {
+    // Definir los límites iniciales de búsqueda
+    let izquierda = 0; // índice del primer elemento
+    let derecha = array.length - 1; // índice del último elemento
+
+    // Mientras el rango de búsqueda siga siendo válido
+    while (izquierda <= derecha) {
+        // Calcular el índice del elemento del medio
+        let medio = Math.floor((izquierda + derecha) / 2);
+
+        // Comprobar si el elemento del medio es el número que buscamos
+        if (array[medio] === objetivo) {
+            return medio; // encontramos el número
+        } else if (array[medio] < objetivo) {
+            izquierda = medio + 1; // buscar en la mitad derecha, el objetivo es mayor y se descarta la izquierda
+        } else {
+            derecha = medio - 1; // buscar en la mitad izquierda, el objetivo es menor y se descarta la derecha
+        }
+    }
+
+    return -1; // no se encontró
+}
+
+// Probar para los números pedidos
+console.log("Posición del 1:", busquedaBinaria(list, 1));
+console.log("Posición del 5:", busquedaBinaria(list, 5));
+console.log("Posición del 6:", busquedaBinaria(list, 6));
+console.log("Posición del 9:", busquedaBinaria(list, 9));
+console.log("Posición del 11:", busquedaBinaria(list, 11));
+
 /*Ejercicio 9: Desafío extra! Orden, lugar y números
 Al ejercicio anterior vamos a aumentarle la difi cultad un poco, y de paso, aplicamos lo aprendido en semanas anteriores. Quiero que hagan lo mismo del ejercicio anterior (buscar la posición de un número en un array), pero partiendo de esta lista:
 let list = [12, 3, 5, 7, 1, 22, 47, 100];
